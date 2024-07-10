@@ -17,12 +17,15 @@ DESCRIBE guestBook;
 
 SELECT * FROM guestBook;
 
--- sample data 추가
+-- sample data 추가(게시물추가)
 INSERT INTO guestBook(guestName, pass, message)
 SELECT guestName, pass, message FROM guestBook;
 
+SELECT num, guestName, message FROM guestBook ORDER BY num DESC;
 
+SELECT num, guestName, message FROM guestBook ORDER BY num DESC LIMIT 0, 10;
 
+SELECT num, guestName, message FROM guestBook ORDER BY num DESC LIMIT 10, 10;
 
 
 
