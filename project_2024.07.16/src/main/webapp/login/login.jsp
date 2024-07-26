@@ -4,7 +4,6 @@
 <%@ page import="java.util.*" %>
 <%@ page import="jakarta.servlet.*" %>
 <%@ page import="jakarta.servlet.http.*" %>
-<%@ page import="Util.JDBCUtil" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -125,7 +124,11 @@
 
                             if (rs.next()) {
                                 // 로그인 성공
-                                out.println("<script>alert('로그인 성공');</script>");
+                                out.println("<script>");
+                                out.println("if (confirm('로그인 성공.')) {");
+                                out.println("    window.location.href = '../main/main.jsp';"); // 메인 페이지 URL
+                                out.println("}");
+                                out.println("</script>");
 
                                 // rememberMe가 체크되었는지 확인
                                 if ("on".equals(rememberMe)) {
